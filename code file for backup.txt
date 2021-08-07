@@ -1,0 +1,31 @@
+##  DSCP  ##
+
+<<< Router 1 >>>
+
+en
+conf t
+
+int fa1/0
+ip address 192.168.30.1 255.255.255.0
+no shut
+exit
+
+ip dhcp pool ipd
+network 192.168.30.0 255.255.255.0
+default-router 192.168.30.1
+exit
+
+<<<Router 2 >>>
+
+en
+conf t
+
+int fa1/0
+ip address 172.16.10.1 255.255.255.0
+no shut
+exit
+
+ip dhcp pool cpd
+network 172.168.10.0 255.255.255.0
+default-router 172.16.10.1
+exit
